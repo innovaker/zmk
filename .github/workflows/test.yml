@@ -4,13 +4,13 @@ on:
   push:
     paths:
       - ".github/workflows/test.yml"
-      - "app/tests/**"
-      - "app/src/**"
+      - "tests/**"
+      - "src/**"
   pull_request:
     paths:
       - ".github/workflows/test.yml"
-      - "app/tests/**"
-      - "app/src/**"
+      - "tests/**"
+      - "src/**"
 
 jobs:
   integration_test:
@@ -20,6 +20,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+        with:
+          path: zmk
       - name: Cache west modules
         uses: actions/cache@v2
         env:
@@ -30,7 +32,7 @@ jobs:
             tools/
             zephyr/
             bootloader/
-          key: 4-${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('app/west.yml') }}
+          key: 4-${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('zmk/west.yml') }}
           restore-keys: |
             4-${{ runner.os }}-build-${{ env.cache-name }}-
             4-${{ runner.os }}-build-
@@ -38,7 +40,7 @@ jobs:
         timeout-minutes: 2
         continue-on-error: true
       - name: West init
-        run: west init -l app
+        run: west init -l zmk
       - name: West update
         run: west update
       - name: West Zephyr export
@@ -50,4 +52,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: "log-files"
-          path: app/build/**/*.log
+          path: zmk/build/**/*.log
