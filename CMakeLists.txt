@@ -51,7 +51,7 @@ zephyr_library_sources_ifdef(CONFIG_ZMK_BLE src/hog.c)
 zephyr_library_sources_ifdef(CONFIG_ZMK_RGB_UNDERGLOW src/rgb_underglow.c)
 zephyr_library_sources(src/endpoints.c)
 zephyr_library_sources(src/hid_listener.c)
-zephyr_library_sources(src/main.c)
+zephyr_library_sources(src/zmk.c)
 
 add_subdirectory(src/display/)
 
