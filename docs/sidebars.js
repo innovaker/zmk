@@ -15,6 +15,7 @@ module.exports = {
       "features/underglow",
     ],
     Behaviors: [
+      "behaviors/overview",
       "behaviors/key-press",
       "behaviors/layers",
       "behaviors/misc",
