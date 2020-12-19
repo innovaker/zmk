@@ -148,7 +148,7 @@ static void release_captured_events() {
         } else {
             struct keycode_state_changed *modifier_event =
                 cast_keycode_state_changed(captured_event);
-            LOG_DBG("Releasing mods changed event 0x%02X %s", modifier_event->keycode,
+            LOG_DBG("Releasing mods changed event 0x%02X %s", modifier_event->usage.id,
                     (modifier_event->state ? "pressed" : "released"));
         }
         ZMK_EVENT_RAISE_AT(captured_event, behavior_hold_tap);
@@ -429,9 +429,8 @@ static int position_state_changed_listener(const struct zmk_event_header *eh) {
 }
 
 static inline bool only_mods(struct keycode_state_changed *ev) {
-    return ev->usage_page == HID_USAGE_KEY &&
-           ev->keycode >= HID_USAGE_ID(HID_USAGE_KEY_KEYBOARD_LEFTCONTROL) &&
-           ev->keycode <= HID_USAGE_ID(HID_USAGE_KEY_KEYBOARD_RIGHT_GUI);
+    uint32_t usage = hid_usage_pack(ev->usage);
+    return usage >= HID_USAGE_KEY_KEYBOARD_LEFTCONTROL && usage <= HID_USAGE_KEY_KEYBOARD_RIGHT_GUI;
 }
 
 static int keycode_state_changed_listener(const struct zmk_event_header *eh) {
@@ -439,18 +438,18 @@ static int keycode_state_changed_listener(const struct zmk_event_header *eh) {
     struct keycode_state_changed *ev = cast_keycode_state_changed(eh);
 
     if (undecided_hold_tap == NULL) {
-        // LOG_DBG("0x%02X bubble (no undecided hold_tap active)", ev->keycode);
+        // LOG_DBG("0x%02X bubble (no undecided hold_tap active)", ev->usage.id);
         return 0;
     }
 
     if (!only_mods(ev)) {
-        // LOG_DBG("0x%02X bubble (not a mod)", ev->keycode);
+        // LOG_DBG("0x%02X bubble (not a mod)", ev->usage.id);
         return 0;
     }
 
     // only key-up events will bubble through position_state_changed_listener
     // if a undecided_hold_tap is active.
-    LOG_DBG("%d capturing 0x%02X %s event", undecided_hold_tap->position, ev->keycode,
+    LOG_DBG("%d capturing 0x%02X %s event", undecided_hold_tap->position, ev->usage.id,
             ev->state ? "down" : "up");
     capture_event(eh);
     return ZMK_EV_EVENT_CAPTURED;
