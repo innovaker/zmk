@@ -596,17 +596,17 @@ int zmk_ble_unpair_all() {
 };
 
 bool zmk_ble_handle_key_user(struct zmk_key_event *key_event) {
-    zmk_key_t key = key_event->key;
+    uint16_t usage_id = key_event->usage_id;
 
     if (!auth_passkey_entry_conn) {
         return true;
     }
 
-    if (key < NUMBER_1 || key > NUMBER_0) {
+    if (usage_id < NUMBER_1 || usage_id > NUMBER_0) {
         return true;
     }
 
-    uint32_t val = (key == NUMBER_0) ? 0 : (key - NUMBER_1 + 1);
+    uint32_t val = (usage_id == NUMBER_0) ? 0 : (usage_id - NUMBER_1 + 1);
 
     passkey_entries[passkey_digit++] = val;
 
