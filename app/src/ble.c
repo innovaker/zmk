@@ -595,32 +595,4 @@ int zmk_ble_unpair_all() {
     return resp;
 };
 
-bool zmk_ble_handle_key_user(struct zmk_key_event *key_event) {
-    uint16_t usage_id = key_event->usage_id;
-
-    if (!auth_passkey_entry_conn) {
-        return true;
-    }
-
-    if (usage_id < NUMBER_1 || usage_id > NUMBER_0) {
-        return true;
-    }
-
-    uint32_t val = (usage_id == NUMBER_0) ? 0 : (usage_id - NUMBER_1 + 1);
-
-    passkey_entries[passkey_digit++] = val;
-
-    if (passkey_digit == 6) {
-        uint32_t passkey = 0;
-        for (int i = 5; i >= 0; i--) {
-            passkey = (passkey * 10) + val;
-        }
-        bt_conn_auth_passkey_entry(auth_passkey_entry_conn, passkey);
-        bt_conn_unref(auth_passkey_entry_conn);
-        auth_passkey_entry_conn = NULL;
-    }
-
-    return false;
-}
-
 SYS_INIT(zmk_ble_init, APPLICATION, CONFIG_ZMK_BLE_INIT_PRIORITY);
