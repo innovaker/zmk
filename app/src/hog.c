@@ -77,8 +77,9 @@ static ssize_t read_hids_report_map(struct bt_conn *conn, const struct bt_gatt_a
                              sizeof(zmk_hid_report_desc));
 }
 
-static ssize_t read_hids_input_report(struct bt_conn *conn, const struct bt_gatt_attr *attr,
-                                      void *buf, uint16_t len, uint16_t offset) {
+static ssize_t read_hids_keyboard_input_report(struct bt_conn *conn,
+                                               const struct bt_gatt_attr *attr, void *buf,
+                                               uint16_t len, uint16_t offset) {
     struct zmk_hid_keyboard_report_body *report_body = &zmk_hid_get_keyboard_report()->body;
     return bt_gatt_attr_read(conn, attr, buf, len, offset, report_body,
                              sizeof(struct zmk_hid_keyboard_report_body));
@@ -129,7 +130,7 @@ BT_GATT_SERVICE_DEFINE(
                            read_hids_report_map, NULL, NULL),
 
     BT_GATT_CHARACTERISTIC(BT_UUID_HIDS_REPORT, BT_GATT_CHRC_READ | BT_GATT_CHRC_NOTIFY,
-                           BT_GATT_PERM_READ_ENCRYPT, read_hids_input_report, NULL, NULL),
+                           BT_GATT_PERM_READ_ENCRYPT, read_hids_keyboard_input_report, NULL, NULL),
     BT_GATT_CCC(input_ccc_changed, BT_GATT_PERM_READ_ENCRYPT | BT_GATT_PERM_WRITE_ENCRYPT),
     BT_GATT_DESCRIPTOR(BT_UUID_HIDS_REPORT_REF, BT_GATT_PERM_READ, read_hids_report_ref, NULL,
                        &input),
