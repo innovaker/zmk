@@ -1,0 +1,11 @@
+# Copyright (c) 2021 The ZMK Contributors
+# SPDX-License-Identifier: MIT
+
+id: quefrency
+name: Quefrency Rev. 1
+url: https://keeb.io/products/quefrency-60-65-split-staggered-keyboard
+compatible:
+  - pro_micro
+components:
+  - left
+  - right

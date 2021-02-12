@@ -1,0 +1,8 @@
+# Copyright (c) 2021 The ZMK Contributors
+# SPDX-License-Identifier: MIT
+
+id: clueboard_california
+name: Clueboard California
+url: https://nicekeyboards.com
+compatible:
+  - proton_c

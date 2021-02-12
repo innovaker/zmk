@@ -1,0 +1,11 @@
+# Copyright (c) 2021 The ZMK Contributors
+# SPDX-License-Identifier: MIT
+
+id: splitreus62
+name: Splitreus62
+url: https://github.com/Na-Cly/splitreus62
+compatible:
+  - pro_micro
+components:
+  - left
+  - right

@@ -1,0 +1,8 @@
+# Copyright (c) 2021 The ZMK Contributors
+# SPDX-License-Identifier: MIT
+
+id: qaz
+name: QAZ
+url: https://www.cbkbd.com/product/qaz-keyboard-kit
+compatible:
+  - pro_micro

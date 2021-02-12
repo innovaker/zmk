@@ -1,0 +1,11 @@
+# Copyright (c) 2021 The ZMK Contributors
+# SPDX-License-Identifier: MIT
+
+id: sofle
+name: Sofle
+url: https://github.com/josefadamcik/SofleKeyboard
+compatible:
+  - pro_micro
+components:
+  - left
+  - right

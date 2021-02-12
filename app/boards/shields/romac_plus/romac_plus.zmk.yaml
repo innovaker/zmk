@@ -1,0 +1,8 @@
+# Copyright (c) 2021 The ZMK Contributors
+# SPDX-License-Identifier: MIT
+
+id: romac_plus
+name: RoMac+
+url: https://kingly-keys.xyz/products/in-stock-the-romac?variant=30592757989479
+compatible:
+  - pro_micro

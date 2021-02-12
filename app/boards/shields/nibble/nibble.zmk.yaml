@@ -1,0 +1,8 @@
+# Copyright (c) 2021 The ZMK Contributors
+# SPDX-License-Identifier: MIT
+
+id: nibble
+name: NIBBLE
+url: https://nullbits.co/nibble/
+compatible:
+  - pro_micro

@@ -1,0 +1,8 @@
+# Copyright (c) 2021 The ZMK Contributors
+# SPDX-License-Identifier: MIT
+
+id: bluemicro840_v1
+name: BlueMacro840 V1.x
+url: https://store.jpconstantineau.com/#/group/bluemicro
+compatible:
+  - pro_micro

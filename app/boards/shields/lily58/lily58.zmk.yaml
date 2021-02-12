@@ -1,0 +1,11 @@
+# Copyright (c) 2021 The ZMK Contributors
+# SPDX-License-Identifier: MIT
+
+id: lily58
+name: Lily58
+url: https://github.com/kata0510/Lily58
+compatible:
+  - pro_micro
+components:
+  - left
+  - right

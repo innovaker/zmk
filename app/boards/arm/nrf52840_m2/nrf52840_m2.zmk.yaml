@@ -1,0 +1,8 @@
+# Copyright (c) 2021 The ZMK Contributors
+# SPDX-License-Identifier: MIT
+
+id: nrf52840_m2
+name: nRF52840 M.2 Module
+url: https://makerdiary.com/products/nrf52840-m2-module
+compatible:
+  - makerdiary_m2

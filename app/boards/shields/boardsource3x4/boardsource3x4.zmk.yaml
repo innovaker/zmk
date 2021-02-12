@@ -1,0 +1,8 @@
+# Copyright (c) 2021 The ZMK Contributors
+# SPDX-License-Identifier: MIT
+
+id: boardsource3x4
+name: 3x4 Macro
+url: https://boardsource.xyz/store/5ecc2008eee64242946c98c1
+compatible:
+  - pro_micro

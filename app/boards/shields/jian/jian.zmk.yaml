@@ -1,0 +1,11 @@
+# Copyright (c) 2021 The ZMK Contributors
+# SPDX-License-Identifier: MIT
+
+id: jian
+name: Jian
+url: https://github.com/KGOH/Jian-Info
+compatible:
+  - pro_micro
+components:
+  - left
+  - right

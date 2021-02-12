@@ -1,0 +1,8 @@
+# Copyright (c) 2021 The ZMK Contributors
+# SPDX-License-Identifier: MIT
+
+id: eek
+name: eek!
+url: https://github.com/Klackygears/eek_doc
+compatible:
+  - pro_micro

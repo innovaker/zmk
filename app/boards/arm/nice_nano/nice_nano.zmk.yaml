@@ -1,0 +1,8 @@
+# Copyright (c) 2021 The ZMK Contributors
+# SPDX-License-Identifier: MIT
+
+id: nice_nano
+name: nice!nano v1.0
+url: https://nicekeyboards.com/products/nice-nano-v1-0
+compatible:
+  - pro_micro

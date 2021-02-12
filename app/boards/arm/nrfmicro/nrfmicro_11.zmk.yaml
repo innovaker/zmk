@@ -1,0 +1,8 @@
+# Copyright (c) 2021 The ZMK Contributors
+# SPDX-License-Identifier: MIT
+
+id: nrfmicro_11
+name: nRFMicro 1.1
+url: https://github.com/joric/nrfmicro
+compatible:
+  - pro_micro

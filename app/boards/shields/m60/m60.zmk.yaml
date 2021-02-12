@@ -1,0 +1,8 @@
+# Copyright (c) 2021 The ZMK Contributors
+# SPDX-License-Identifier: MIT
+
+id: m60
+name: M60
+url: https://makerdiary.com/pages/m60-mechanical-keyboard
+compatible:
+  - makerdiary_m2

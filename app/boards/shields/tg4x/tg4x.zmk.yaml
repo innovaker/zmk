@@ -1,0 +1,8 @@
+# Copyright (c) 2021 The ZMK Contributors
+# SPDX-License-Identifier: MIT
+
+id: tg4x
+name: TG4x
+url: https://github.com/MythosMann/tg4x
+compatible:
+  - pro_micro

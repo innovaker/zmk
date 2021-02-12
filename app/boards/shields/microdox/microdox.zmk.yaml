@@ -1,0 +1,11 @@
+# Copyright (c) 2021 The ZMK Contributors
+# SPDX-License-Identifier: MIT
+
+id: microdox
+name: Microdox
+url: https://boardsource.xyz/store/5f2e7e4a2902de7151494f92
+compatible:
+  - pro_micro
+components:
+  - left
+  - right

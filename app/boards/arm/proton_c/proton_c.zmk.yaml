@@ -1,0 +1,8 @@
+# Copyright (c) 2021 The ZMK Contributors
+# SPDX-License-Identifier: MIT
+
+id: proton_c
+name: Proton C
+url: https://qmk.fm/proton-c/
+compatible:
+  - pro_micro

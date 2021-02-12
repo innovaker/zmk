@@ -1,0 +1,11 @@
+# Copyright (c) 2021 The ZMK Contributors
+# SPDX-License-Identifier: MIT
+
+id: cradio
+name: Cradio
+url: https://github.com/davidphilipbarr/36keys/tree/master/34Keys/Cradio
+compatible:
+  - pro_micro
+components:
+  - left
+  - right

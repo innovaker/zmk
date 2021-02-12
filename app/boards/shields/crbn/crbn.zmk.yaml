@@ -1,0 +1,8 @@
+# Copyright (c) 2021 The ZMK Contributors
+# SPDX-License-Identifier: MIT
+
+id: crbn
+name: CRBN Featherlight 40%
+url: https://keygem.store/products/group-buy-featherlight-40-kit
+compatible:
+  - pro_micro

@@ -1,0 +1,11 @@
+# Copyright (c) 2021 The ZMK Contributors
+# SPDX-License-Identifier: MIT
+
+id: bfo9000
+name: BFO-9000
+url: https://keeb.io/products/bfo-9000-keyboard-customizable-full-size-split-ortholinear
+compatible:
+  - pro_micro
+components:
+  - left
+  - right
