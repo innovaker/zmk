@@ -292,15 +292,8 @@
       "required": [
         "type",
         "id",
-        "buildParameters?",
         "name",
-        "openHardware",
-        "repository",
         "web",
-        "releaseDate",
-        "interfaces",
-        "connectivity",
-        "usbConnector"
       ]
     }
   }
