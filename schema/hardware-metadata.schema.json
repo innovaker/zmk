@@ -1,0 +1,307 @@
+{
+  "$id": "https://zmkfirmware.dev/zmk.metadata.json",
+  "title": "HardwareMetadata",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "oneOf": [{ "$ref": "#/$defs/board" }, { "$ref": "#/$defs/shield" }],
+  "$defs": {
+    "type": {
+      "type": "string",
+      "description": "The type of hardware.",
+      "enum": ["board", "shield"]
+    },
+    "id": {
+      "type": "string",
+      "description": "Unique id.",
+      "pattern": "^[a-z0-9_]+$"
+    },
+    "name": { "type": "string", "description": "The hardware's name." },
+    "description": {
+      "type": "string",
+      "description": "A short description of the hardware."
+    },
+    "repository": {
+      "type": "string",
+      "description": "The git repository which contains the ZMK implementation of the hardware.",
+      "format": "uri"
+    },
+    "website": {
+      "type": "string",
+      "description": "The hardware's website/page.",
+      "format": "uri"
+    },
+    "releaseDate": {
+      "type": "string",
+      "description": "The hardware's release date.",
+      "format": "date"
+    },
+    "interfaces": {
+      "type": "array",
+      "description": "The interfaces supported by the hardware.",
+      "uniqueItems": true,
+      "items": { "type": "string" }
+    },
+    "arch": {
+      "type": "string",
+      "description": "The architecture supported by the hardware.",
+      "enum": [
+        "arc",
+        "arm",
+        "nios2",
+        "posix",
+        "riscv",
+        "sparc",
+        "x86",
+        "xtensa"
+      ]
+    },
+    "board": {
+      "type": "object",
+      "title": "Board",
+      "properties": {
+        "type": { "$ref": "#/$defs/type", "const": "board" },
+        "id": { "$ref": "#/$defs/id" },
+        "extends?": { "type": "string" },
+        "family?": { "type": "object" },
+        "buildParameters?": { "type": "object" },
+        "name": { "$ref": "#/$defs/name" },
+        "description": { "$ref": "#/$defs/description" },
+        "openHardware": { "type": "boolean" },
+        "repository": { "$ref": "#/$defs/repository" },
+        "web": { "$ref": "#/$defs/website" },
+        "releaseDate": { "$ref": "#/$defs/releaseDate" },
+        "interfaces": { "$ref": "#/$defs/interfaces" },
+        "arch": { "$ref": "#/$defs/arch" },
+        "maker": {
+          "type": "object",
+          "description": "The maker of the hardware.",
+          "properties": {
+            "name": { "type": "string" },
+            "web": {
+              "type": "array",
+              "format": "uri",
+              "uniqueItems": true,
+              "items": { "type": "string" }
+            }
+          },
+          "required": ["name"]
+        },
+        "author": {
+          "type": "object",
+          "properties": {
+            "name": { "type": "string" },
+            "web": {
+              "type": "array",
+              "format": "uri",
+              "uniqueItems": true,
+              "items": { "type": "string" }
+            }
+          },
+          "required": ["name"]
+        },
+        "features": {
+          "properties": {
+            "backlighting": { "type": "string" },
+            "display": { "type": "string", "enum": ["oled", "eink", "memory"] },
+            "encoder": { "type": "boolean" },
+            "underglow": { "type": "boolean" },
+            "trackball": { "type": "boolean" },
+            "touchpad": { "type": "boolean" },
+            "joystick": { "type": "boolean" },
+            "pointingStick": { "type": "boolean" }
+          }
+        },
+        "connectivity": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "type": "string", "enum": ["usb", "bluetooth"] }
+        },
+        "construction": {
+          "properties": {
+            "style": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "ortholinear",
+                  "staggered",
+                  "staggered-columnar",
+                  "scooped"
+                ]
+              }
+            }
+          }
+        },
+        "switchTypes": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": ["mx", "choc_v1", "choc_v2", "alps"]
+          }
+        },
+        "dipSwitches": { "type": "boolean" },
+        "hotswap": { "type": "boolean" },
+        "usbConnector": {
+          "type": "string",
+          "enum": ["c", "mini_b", "micro_b"]
+        },
+        "formFactor???": {
+          "type": "string",
+          "enum": [
+            "battleship",
+            "full",
+            "tkl",
+            "75",
+            "65",
+            "60",
+            "40",
+            "ergo",
+            "macropad",
+            "other"
+          ]
+        },
+        "silencingFoam": { "type": "boolean" },
+        "statusLEDs": { "type": "boolean" },
+        "typingAngle": { "type": "number" }
+      },
+      "required": [
+        "type",
+        "id",
+        "buildParameters?",
+        "name",
+        "openHardware",
+        "repository",
+        "web",
+        "releaseDate",
+        "arch",
+        "connectivity",
+        "usbConnector"
+      ]
+    },
+    "shield": {
+      "type": "object",
+      "title": "Shield",
+      "properties": {
+        "type": { "$ref": "#/$defs/type", "const": "shield" },
+        "id": { "$ref": "#/$defs/id" },
+        "extends?": { "type": "string" },
+        "family?": { "type": "object" },
+        "buildParameters?": { "type": "object" },
+        "name": { "$ref": "#/$defs/name" },
+        "description": { "$ref": "#/$defs/description" },
+        "openHardware": { "type": "boolean" },
+        "repository": { "$ref": "#/$defs/repository" },
+        "web": { "$ref": "#/$defs/website" },
+        "releaseDate": { "$ref": "#/$defs/releaseDate" },
+        "interfaces": { "$ref": "#/$defs/interfaces" },
+        "maker": {
+          "type": "object",
+          "description": "The maker of the hardware.",
+          "properties": {
+            "name": { "type": "string" },
+            "web": {
+              "type": "array",
+              "format": "uri",
+              "uniqueItems": true,
+              "items": { "type": "string" }
+            }
+          },
+          "required": ["name"]
+        },
+        "author": {
+          "type": "object",
+          "properties": {
+            "name": { "type": "string" },
+            "web": {
+              "type": "array",
+              "format": "uri",
+              "uniqueItems": true,
+              "items": { "type": "string" }
+            }
+          },
+          "required": ["name"]
+        },
+        "features": {
+          "properties": {
+            "backlighting": { "type": "string" },
+            "display": { "type": "string", "enum": ["oled", "eink", "memory"] },
+            "encoder": { "type": "boolean" },
+            "underglow": { "type": "boolean" },
+            "trackball": { "type": "boolean" },
+            "touchpad": { "type": "boolean" },
+            "joystick": { "type": "boolean" },
+            "pointingStick": { "type": "boolean" }
+          }
+        },
+        "connectivity": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "type": "string", "enum": ["usb", "bluetooth"] }
+        },
+        "construction": {
+          "properties": {
+            "style": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "ortholinear",
+                  "staggered",
+                  "staggered-columnar",
+                  "scooped"
+                ]
+              }
+            }
+          }
+        },
+        "switchTypes": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": ["mx", "choc_v1", "choc_v2", "alps"]
+          }
+        },
+        "dipSwitches": { "type": "boolean" },
+        "hotswap": { "type": "boolean" },
+        "usbConnector": {
+          "type": "string",
+          "enum": ["c", "mini_b", "micro_b"]
+        },
+        "formFactor???": {
+          "type": "string",
+          "enum": [
+            "battleship",
+            "full",
+            "tkl",
+            "75",
+            "65",
+            "60",
+            "40",
+            "ergo",
+            "macropad",
+            "other"
+          ]
+        },
+        "silencingFoam": { "type": "boolean" },
+        "statusLEDs": { "type": "boolean" },
+        "typingAngle": { "type": "number" }
+      },
+      "required": [
+        "type",
+        "id",
+        "buildParameters?",
+        "name",
+        "openHardware",
+        "repository",
+        "web",
+        "releaseDate",
+        "interfaces",
+        "connectivity",
+        "usbConnector"
+      ]
+    }
+  }
+}
