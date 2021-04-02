@@ -1,0 +1,6 @@
+type: board
+id: nrf52840_m2
+name: nRF52840 M.2 Module
+arch: arm
+maker:
+  name: makerdiary

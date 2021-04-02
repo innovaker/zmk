@@ -1,0 +1,6 @@
+type: board
+id: nice_nano
+name: nice!nano v1.0
+arch: arm
+maker:
+  name: Nice Keyboards

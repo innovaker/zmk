@@ -1,0 +1,6 @@
+type: board
+id: nrfmicro_11_flipped
+name: nRFMicro 1.1 (flipped)
+arch: arm
+maker:
+  name: Joric

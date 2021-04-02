@@ -1,0 +1,6 @@
+type: board
+id: bdn9_rev2
+name: BDN9 Rev. 2
+arch: arm
+maker:
+  name: keeb.io

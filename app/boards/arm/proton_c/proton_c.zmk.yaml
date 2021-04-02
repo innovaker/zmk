@@ -1,0 +1,6 @@
+type: board
+id: proton_c
+name: Proton C
+arch: arm
+maker:
+  name: QMK

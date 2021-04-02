@@ -1,0 +1,6 @@
+type: board
+id: nrfmicro_13
+name: nRFMicro 1.3
+arch: arm
+maker:
+  name: Joric

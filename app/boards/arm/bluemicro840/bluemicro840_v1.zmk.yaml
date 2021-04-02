@@ -1,0 +1,6 @@
+type: board
+id: bluemicro840_v1
+name: BlueMicro840 V1.x
+arch: arm
+maker:
+  name: BlueMicro

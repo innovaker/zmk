@@ -1,0 +1,6 @@
+type: board
+id: planck_rev6
+name: Planck Rev 6
+arch: arm
+maker:
+  name: OLKB

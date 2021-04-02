@@ -1,0 +1,6 @@
+type: board
+id: dz60rgb_rev1
+name: DZ60 RGB V1
+arch: arm
+maker:
+  name: dztech
