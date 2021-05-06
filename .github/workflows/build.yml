@@ -14,7 +14,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      image: zmkfirmware/zmk-build-arm:2.4
+      image: innovaker/zmk-build-arm:3201852e3a21c1c26420d1ef001dcb42daef574d
     strategy:
       matrix:
         board:
