@@ -16,7 +16,7 @@ jobs:
   integration_test:
     runs-on: ubuntu-latest
     container:
-      image: zmkfirmware/zmk-build-arm:2.4
+      image: innovaker/zmk-build-arm:feat_zephyr-sdk-0.12.x-20210614112112-2.4.0-0.12.4-51a3c9e4feab-935584034
     steps:
       - name: Checkout
         uses: actions/checkout@v2
